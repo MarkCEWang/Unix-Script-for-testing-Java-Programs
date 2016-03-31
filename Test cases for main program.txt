@@ -1,0 +1,91 @@
+
+
+cd $FUSIONWORKS_BASE_PATH/correlators
+
+
+scp -p tor2_inmem_ba_acct_id_pxg1/*cache/* ocsfw1@172.25.145.150:/comp1/fwdata/correlators/tor1_inmem_ba_acct_id_pxg1/*cache/
+scp -p tor2_inmem_boc_pxg1/*cache/*  ocsfw1@172.25.145.150:/comp1/fwdata/correlators/tor1_inmem_boc_pxg1/*cache/
+scp -p tor2_inmem_bs_sub_id_pxg1/*cache/* ocsfw1@172.25.145.150:/comp1/fwdata/correlators/tor1_inmem_bs_sub_id_pxg1/*cache/
+scp -p tor2_inmem_bsi_sub_id_pxg1/*cache/* ocsfw1@172.25.145.150:/comp1/fwdata/correlators/tor1_inmem_bsi_sub_id_pxg1/*cache/
+scp -p tor2_inmem_bsn_access_no_pxg1/*cache/* ocsfw1@172.25.145.150:/comp1/fwdata/correlators/tor1_inmem_bsn_access_no_pxg1/*cache/
+scp -p tor2_inmem_bss_sub_id_pxg1/*cache/* ocsfw1@172.25.145.150:/comp1/fwdata/correlators/tor1_inmem_bss_sub_id_pxg1/*cache/
+
+
+
+
+
+00000000000000
+
+
+ocsfw6@W0110NtIpsOcsA6Fw6 /var/tmp
+$ ls -al *copy*
+-rwxrwxrwx 1 ocsfw6 app 1886 Sep  5  2012 tor6_active_cache_copy.sh
+ocsfw6@W0110NtIpsOcsA6Fw6 /var/tmp
+
+
+$ less tor6_active_cache_copy.sh
+
+
+
+
+!#/bin/bash
+cd $FUSIONWORKS_BASE_PATH/correlators
+echo "Starting copying cache files from FW5 InMem CTE to FW5 LTE CTE's"
+date
+
+
+
+echo "Start copying to FW6 PGT1 CTE"
+echo "Copying ba_acct_id files..."
+cp -p tor6_inmem_ba_acct_id_pgc2/*cache/* tor6_inmem_ba_acct_id_pgt1/*cache/
+echo "Copying boc files..."
+cp -p tor6_inmem_boc_pgc2/*cache/* tor6_inmem_boc_pgt1/*cache/
+echo "Copying bs_sub_id files..."
+cp -p tor6_inmem_bs_sub_id_pgc2/*cache/* tor6_inmem_bs_sub_id_pgt1/*cache/
+echo "Copying bsi_imsi files..."
+cp -p tor6_inmem_bsi_sub_id_pgc2/*cache/* tor6_inmem_bsi_sub_id_pgt1/*cache/
+echo "Copying bsn_access_no files..."
+cp -p tor6_inmem_bsn_access_no_pgc2/*cache/* tor6_inmem_bsn_access_no_pgt1/*cache/
+echo "Copying bss1_sub_id files..."
+cp -p tor6_inmem_bss_sub_id_pgc2/*cache/* tor6_inmem_bss_sub_id_pgt1/*cache/
+echo "Copying bss_sub_id files..."
+cp -p tor6_inmem_bss_sub_id_pgc2/*cache.backup/* tor6_inmem_bss_sub_id_pgt1/*cache.backup/
+echo "done copying to FW5 PGT1 CTE"
+date
+
+echo "Start copying to FW6 PGT2 CTE"
+echo "Copying ba_acct_id files..."
+cp -p tor6_inmem_ba_acct_id_pgc2/*cache/* tor6_inmem_ba_acct_id_pgt2/*cache/
+echo "Copying boc files..."
+cp -p tor6_inmem_boc_pgc2/*cache/* tor6_inmem_boc_pgt2/*cache/
+echo "Copying bs_sub_id files..."
+cp -p tor6_inmem_bs_sub_id_pgc2/*cache/* tor6_inmem_bs_sub_id_pgt2/*cache/
+echo "Copying bsi_imsi files..."
+cp -p tor6_inmem_bsi_sub_id_pgc2/*cache/* tor6_inmem_bsi_sub_id_pgt2/*cache/
+echo "Copying bsn_access_no files..."
+cp -p tor6_inmem_bsn_access_no_pgc2/*cache/* tor6_inmem_bsn_access_no_pgt2/*cache/
+echo "Copying bss1_sub_id files..."
+cp -p tor6_inmem_bss_sub_id_pgc2/*cache/* tor6_inmem_bss_sub_id_pgt2/*cache/
+echo "Copying bss_sub_id files..."
+cp -p tor6_inmem_bss_sub_id_pgc2/*cache.backup/* tor6_inmem_bss_sub_id_pgt2/*cache.backup/
+echo "done copying to FW5 PGT2 CTE"
+date
+
+echo "Cache copy completed"
+date
+
+
+
+
+
+ocsfw1@W0110NtIpsOcsA1Fw1 /comp1/fwdata/correlators
+$ ls -al *tor1_inmem*_pgt2
+
+PGW:
+
+tor1_inmem_ba_acct_id_pgt2:
+tor1_inmem_boc_pgt2:
+tor1_inmem_bs_sub_id_pgt2:
+tor1_inmem_bsi_sub_id_pgt2:
+tor1_inmem_bsn_access_no_pgt2:
+tor1_inmem_bss_sub_id_pgt2:
